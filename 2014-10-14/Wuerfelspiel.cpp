@@ -30,7 +30,7 @@ int main() {
 
   cout << "Die gewürfelten Zahlen der Spieler 1-" << N_PLAYERS << ":" << endl;
   for(int player_number = 0; player_number < N_PLAYERS; player_number++) {
-    cout << "Spieler " << player_number << ":  ";
+    cout << "Spieler " << player_number + 1 << ":  ";
 
     for(int k = 0; k < 10; k++) {
       cout << aiValues[player_number][k] << " ";
