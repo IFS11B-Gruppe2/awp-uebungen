@@ -45,7 +45,7 @@ int main() {
 
   cout << "Die gewürfelten Zahlen der Spieler 1-" << N_PLAYERS << ":" << endl;
   for(int player_number = 0; player_number < N_PLAYERS; player_number++) {
-    cout << "Spieler " << Spieler[player_number].cName << ":  ";
+    cout << "Spieler " << Spieler[player_number].cName << ":\t";
 
     for(int throw_number = 0; throw_number < THROWS; throw_number++) {
       cout << Spieler[player_number].aiValues[throw_number] << " ";
