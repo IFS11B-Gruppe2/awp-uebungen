@@ -1,20 +1,25 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#define MAX_VALUE 6
+#define THROWS 10
 
 using namespace std;
 
 int main() {
   // vars
-  int aiValues[10];
-  int aiTimes[7] = {0};
+  int aiValues[THROWS];
+  int aiTimes[MAX_VALUE + 1] = {0};
 
-  // logic
-  for(int k = 0; k < 10; k++) {
-    aiValues[k] = rand() % 6 + 1;
+  /* beginning of logic */
+
+  // Get random numbers.
+  for(int k = 0; k < THROWS; k++) {
+    aiValues[k] = rand() % MAX_VALUE + 1;
   }
 
-  for(int k = 0; k < 10; k++) {
+  // Get number occurrences
+  for(int k = 0; k < THROWS; k++) {
     switch(aiValues[k]) {
       case 1:
         aiTimes[1] ++;
@@ -37,6 +42,8 @@ int main() {
     }
   }
 
+  /* end of logic */
+
   // output
   cout << "--------------------------------------" << endl;
   cout << "Das Würfelspiel" << endl;
@@ -44,13 +51,13 @@ int main() {
   cout << endl;
 
   cout << "Die gewürfelten Zahlen der Spieler" << endl;
-  for(int k = 0; k < 10; k++) {
+  for(int k = 0; k < THROWS; k++) {
     cout << aiValues[k] << " ";
   }
   cout << endl << endl;
 
-  cout << "Ziehungshäufigkeiten der Zahlen 1-6:" << endl;
-  for(int k = 1; k <= 6; k++) {
+  cout << "Ziehungshäufigkeiten der Zahlen 1-" << MAX_VALUE << ":" << endl;
+  for(int k = 1; k <= MAX_VALUE; k++) {
     cout << "Die Zahl " << k << "  " << aiTimes[k] << " mal" << endl;
   }
   cout << endl;
