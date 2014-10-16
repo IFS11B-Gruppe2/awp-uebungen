@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <time.h>
 #define N_PLAYERS 10
 
 using namespace std;

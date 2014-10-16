@@ -14,6 +14,8 @@ int main() {
 
   // logic
   for(int player_number = 0; player_number < N_PLAYERS; player_number++) {
+    cout << "Name: ";
+    cin >> aiValues[player_number]
     for(int throw_number = 0; throw_number < 10; throw_number++) {
       aiValues[player_number][throw_number] = rand() % 6 + 1;
     }
