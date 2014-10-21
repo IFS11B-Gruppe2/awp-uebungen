@@ -1,5 +1,5 @@
 // Auszugweise: mit Call by Reference
-// KoordinatenUrechnung m.H. von Funktionen
+// KoordinatenUmrechnung m.H. von Funktionen
 // Koordinaten werden m.H. EINER Variablen und
 // EINES Datentyps verwaltet
 #include <iostream>
