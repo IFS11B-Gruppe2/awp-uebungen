@@ -1,4 +1,4 @@
-// Auszugweise: mit Call by Reference
+// Auszugsweise: mit Call by Reference
 // KoordinatenUmrechnung m.H. von Funktionen
 // Koordinaten werden m.H. EINER Variablen und
 // EINES Datentyps verwaltet
