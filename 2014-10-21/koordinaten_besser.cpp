@@ -86,6 +86,12 @@ int main() {
       case 0:
         iExit = true;
       break;
+
+      default:
+        cout << "Option '" << iOption << "' nicht gultig!" << endl;
+        cout << "Pause... (Drücken Sie die 'Enter' Taste)";
+        cin.get();
+        cin.get();
     }
   }
 
