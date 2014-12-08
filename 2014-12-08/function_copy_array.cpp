@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stdio.h>
+#define LENGTH_ACZEICHEN 4
+#define LENGTH_AIFELD 3
 
 using namespace std;
 
@@ -7,14 +9,14 @@ void fill(char *pac, int *pai);
 void showIntArray(int *pai, int paiLenght);
 
 int main() {
-	char acZeichen[4] = "WER";
-	int aiFeld[3] = {0};
+	char acZeichen[LENGTH_ACZEICHEN] = "WER";
+	int aiFeld[LENGTH_AIFELD] = {0};
 
 	fill(acZeichen, aiFeld);
 
 	printf("acZeichen: %s \n", acZeichen);
 	cout << "aiFeld: ";
-	showIntArray(aiFeld, 3);
+	showIntArray(aiFeld, LENGTH_AIFELD);
 	cout << endl;
 }
 
