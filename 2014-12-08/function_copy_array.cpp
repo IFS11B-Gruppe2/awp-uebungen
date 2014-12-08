@@ -14,9 +14,7 @@ int main() {
 
 	printf("acZeichen: %s \n", acZeichen);
 	cout << "aiFeld: ";
-	for(int i = 0; i < 3; i++) {
-		cout << aiFeld[i] << " ";
-	}
+	showIntArray(aiFeld, 3);
 	cout << endl;
 }
 
@@ -27,5 +25,7 @@ void fill(char *pac, int *pai) {
 }
 
 void showIntArray(int *pai, int paiLenght) {
-	// TODO Hausaufgabe
+	for(int i = 0; i < paiLenght; i++) {
+		cout << pai[i] << " ";
+	}
 }
