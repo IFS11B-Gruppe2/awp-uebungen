@@ -2,12 +2,14 @@
 #include <stdio.h>
 #define LENGTH_ACZEICHEN 4
 #define LENGTH_AIFELD 3
+#define BUBLE_SORT_ASC 0
+#define BUBLE_SORT_DESC 1
 
 using namespace std;
 
 void fill(char *pac, int *pai);
 void showIntArray(int *pai, int paiLenght);
-void sortIntArray(int *pai, int paiLenght);
+void sortIntArray(int *pai, int paiLenght, int order);
 
 int main() {
 	char acZeichen[LENGTH_ACZEICHEN] = "WER";
@@ -19,7 +21,7 @@ int main() {
 	cout << "aiFeld: ";
 	showIntArray(aiFeld, LENGTH_AIFELD);
 	cout << endl;
-	sortIntArray(aiFeld, LENGTH_AIFELD);
+	sortIntArray(aiFeld, LENGTH_AIFELD, BUBLE_SORT_ASC);
 	cout << "aiFeld(geordnet): ";
 	showIntArray(aiFeld, LENGTH_AIFELD);
 	cout << endl;
@@ -37,7 +39,7 @@ void showIntArray(int *pai, int paiLenght) {
 	}
 }
 
-void sortIntArray(int *pai, int paiLenght) {
+void sortIntArray(int *pai, int paiLenght, int order) {
 	bool sorted;
 	int i = 0;
 
@@ -46,7 +48,11 @@ void sortIntArray(int *pai, int paiLenght) {
 		sorted = true;
 
 		for (int k = 0; k < paiLenght - 1; ++k) {
-			if (pai[k] > pai[k + 1]) {
+			if (
+				order == BUBLE_SORT_ASC && pai[k] > pai[k + 1]
+				||
+				order == BUBLE_SORT_DESC && pai[k] < pai[k + 1]
+			) {
 				int tmp = pai[k];
 				pai[k] = pai[k + 1];
 				pai[k + 1] = tmp;
