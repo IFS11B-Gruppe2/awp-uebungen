@@ -47,7 +47,7 @@ void sortIntArray(int *pai, int paiLenght, int order) {
 		++i;
 		sorted = true;
 
-		for (int k = 0; k < paiLenght - 1; ++k) {
+		for (int k = 0; k < paiLenght - k; ++k) {
 			if (
 				order == BUBLE_SORT_ASC && pai[k] > pai[k + 1]
 				||
