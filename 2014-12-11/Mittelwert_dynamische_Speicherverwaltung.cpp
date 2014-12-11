@@ -2,7 +2,8 @@
 
 using namespace std;
 
-float EingabeMittelwert(int *piFeld, int iAnzahl);
+void Eingabe(int *piFeld, int iAnzahl);
+float Mittelwert(int *piFeld, int iAnzahl);
 
 int main() {
 	int iAnzahl, *piWerte;
@@ -13,7 +14,8 @@ int main() {
 
 	piWerte = new int[iAnzahl];
 
-	fMittelwert = EingabeMittelwert(piWerte, iAnzahl);
+	Eingabe(piWerte, iAnzahl);
+	fMittelwert = Mittelwert(piWerte, iAnzahl);
 
 	cout << "Mittelwert: " << fMittelwert << endl;
 
@@ -23,13 +25,17 @@ int main() {
 	return 0;
 }
 
-float EingabeMittelwert(int *piFeld, int iAnzahl) {
-	float fMittelwert = 0;
-
+void Eingabe(int *piFeld, int iAnzahl) {
 	for(int i = 0; i < iAnzahl; ++i) {
 		cout << "[" << i << "]: ";
 		cin >> piFeld[i];
+	}
+}
 
+float Mittelwert(int *piFeld, int iAnzahl) {
+	float fMittelwert = 0;
+
+	for(int i = 0; i < iAnzahl; ++i) {
 		fMittelwert += piFeld[i];
 	}
 
