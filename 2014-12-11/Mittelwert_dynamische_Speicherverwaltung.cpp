@@ -1,8 +1,11 @@
 #include <iostream>
 
+#define NUMBER_TO_SEARCH 1
+
 using namespace std;
 
 void Eingabe(int *piFeld, int iAnzahl);
+bool isVorhanden(int *piFeld, int iAnzahl, int iGesucht);
 float Mittelwert(int *piFeld, int iAnzahl);
 void MaxMin(int *piFeld, int iAnzahl, int &iMax, int &iMin);
 int Max(int *piFeld, int iAnzahl);
@@ -13,6 +16,7 @@ int main() {
 	int iAnzahl, *piWerte;
 	float fMittelwert;
 	int iMax, iMin;
+	bool gefunden;
 
 	cout << "Wie viele Zahlen? ";
 	cin >> iAnzahl;
@@ -24,10 +28,16 @@ int main() {
 	//iMax = Max(piWerte, iAnzahl);
 	//iMin = Min(piWerte, iAnzahl);
 	MaxMin(piWerte, iAnzahl, iMax, iMin);
+	gefunden = isVorhanden(piWerte, iAnzahl, NUMBER_TO_SEARCH);
 
 	cout << "Mittelwert: " << fMittelwert << endl;
 	cout << "Max: " << iMax << endl;
 	cout << "Min: " << iMin << endl;
+	cout << "Die Nummer " << NUMBER_TO_SEARCH << " wurde";
+	if (!gefunden) {
+		cout << " nicht";
+	}
+	cout << " gefunden." << endl;
 
 	delete[] piWerte;
 	piWerte = NULL;
@@ -40,6 +50,18 @@ void Eingabe(int *piFeld, int iAnzahl) {
 		cout << "[" << i << "]: ";
 		cin >> piFeld[i];
 	}
+}
+
+bool isVorhanden(int *piFeld, int iAnzahl, int iGesucht) {
+	bool gefunden = false;
+
+	for (int i = 0; i < iAnzahl && !gefunden; ++i) {
+		if (piFeld[i] == iGesucht) {
+			gefunden = true;
+		}
+	}
+
+	return gefunden;
 }
 
 void MaxMin(int *piFeld, int iAnzahl, int &iMax, int &iMin) {
