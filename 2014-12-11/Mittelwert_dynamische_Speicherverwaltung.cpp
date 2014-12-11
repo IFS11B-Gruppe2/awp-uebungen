@@ -6,6 +6,7 @@ void Eingabe(int *piFeld, int iAnzahl);
 float Mittelwert(int *piFeld, int iAnzahl);
 int Max(int *piFeld, int iAnzahl);
 int Min(int *piFeld, int iAnzahl);
+int* reserviertInt(int iAnzahl);
 
 int main() {
 	int iAnzahl, *piWerte;
@@ -15,7 +16,7 @@ int main() {
 	cout << "Wie viele Zahlen? ";
 	cin >> iAnzahl;
 
-	piWerte = new int[iAnzahl];
+	piWerte = reserviertInt(iAnzahl);
 
 	Eingabe(piWerte, iAnzahl);
 	fMittelwert = Mittelwert(piWerte, iAnzahl);
@@ -73,4 +74,8 @@ float Mittelwert(int *piFeld, int iAnzahl) {
 	fMittelwert /= iAnzahl;
 
 	return fMittelwert;
+}
+
+int* reserviertInt(int iAnzahl) {
+	return new int[iAnzahl];
 }
