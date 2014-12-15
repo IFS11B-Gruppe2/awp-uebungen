@@ -7,16 +7,23 @@ void resizeArray(int *pai, int &iCurrentLength);
 void showIntArray(int *pai, int paiLength);
 
 int main() {
-	int iArrayLenght = 3,
-	    *test = new int[iArrayLenght];
+	int iArrayLength = 0, iValue, *paiList;
 
-	test[0] = 0;
-	test[1] = 1;
-	test[2] = 2;
+	do {
+		cout << "[" << iArrayLength << "]: ";
+		cin >> iValue;
 
-	resizeArray(test, iArrayLenght);
-	test[3] = 3;
-	showIntArray(test, iArrayLenght);
+		if (iValue != 0) {
+			if (iArrayLength == 0) {
+				paiList = new int;
+				++iArrayLength;
+				*paiList = iValue;
+			}
+		}
+	} while(iValue != 0);
+
+	cout << endl;
+	showIntArray(paiList, iArrayLength);
 	cout << endl;
 
 	return 0;
