@@ -3,26 +3,23 @@
 using namespace std;
 
 void copyArray(int *paiSource, int iHowMany, int *paiTarget);
-void resizeArray(int *pai, int &iCurrentLength);
+int* resizeArray(int *pai, int &iCurrentLength);
 void showIntArray(int *pai, int paiLength);
 
 int main() {
-	int iArrayLength = 0, iValue, *paiList;
+	int iArrayLength = 0, iValue, *paiList = NULL;
 
 	do {
 		cout << "[" << iArrayLength << "]: ";
 		cin >> iValue;
 
 		if (iValue != 0) {
-			if (iArrayLength == 0) {
-				paiList = new int;
-				++iArrayLength;
-				*paiList = iValue;
-			}
+			paiList = resizeArray(paiList, iArrayLength);
+			paiList[iArrayLength - 1] = iValue;
 		}
 	} while(iValue != 0);
 
-	cout << endl;
+	cout << endl << "List:" << endl;
 	showIntArray(paiList, iArrayLength);
 	cout << endl;
 
@@ -35,7 +32,7 @@ void copyArray(int *paiSource, int iHowMany, int *paiTarget) {
 	}
 }
 
-void resizeArray(int *pai, int &iCurrentLength) {
+int* resizeArray(int *pai, int &iCurrentLength) {
 	int *tmp = pai;
 
 	pai = new int[iCurrentLength + 1];
@@ -44,8 +41,12 @@ void resizeArray(int *pai, int &iCurrentLength) {
 
 	++iCurrentLength;
 
-	delete[] tmp;
-	tmp = NULL;
+	if (tmp != NULL) {
+		delete[] tmp;
+		tmp = NULL;
+	}
+
+	return pai;
 }
 
 void showIntArray(int *pai, int paiLength) {
