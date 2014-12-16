@@ -23,6 +23,11 @@ int main() {
 	showIntArray(paiList, iArrayLength);
 	cout << endl;
 
+	if (paiList != NULL) {
+		delete[] paiList;
+		paiList = NULL;
+	}
+
 	return 0;
 }
 
