@@ -1,7 +1,8 @@
 <?php
 	require_once('functions.php');
 	define('FIRST_NUMBER', 71);
-	define('N_CELLS', 100)
+	define('N_CELLS', 100);
+	define('COLUMNS', 10);
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@
 
 			echo ' <td ' . $class . '>' . $number . '</td>';
 
-			if ($i % 10 == 0) {
+			if ($i % COLUMNS == 0) {
 				echo '</tr><tr>';
 			}
 		}
