@@ -1,3 +1,7 @@
+<?php
+	require_once('functions.php');
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -12,7 +16,13 @@
 		<tr>
 	<?php
 		for ($i = 1, $number = 29; $i <= 100; $i++, $number++) {
-			echo ' <td>' . $number . '</td>';
+			$class = '';
+
+			if (is_prime($number)) {
+				$class = 'class="blue"';
+			}
+
+			echo ' <td ' . $class . '>' . $number . '</td>';
 
 			if ($i % 10 == 0) {
 				echo '</tr><tr>';

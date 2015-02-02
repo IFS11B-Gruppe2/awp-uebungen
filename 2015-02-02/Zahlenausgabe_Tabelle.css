@@ -9,3 +9,7 @@ td {
 	vertical-align: middle;
 	width: 40px;
 }
+
+td.blue {
+	background-color: #00AAFF;
+}
