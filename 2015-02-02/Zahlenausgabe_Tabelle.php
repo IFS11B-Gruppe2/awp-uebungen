@@ -1,5 +1,7 @@
 <?php
 	require_once('functions.php');
+	define('FIRST_NUMBER', 71);
+	define('N_CELLS', 100)
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@
 	<?php
 		$count_prime_numbers = 0;
 
-		for ($i = 1, $number = 29; $i <= 100; $i++, $number++) {
+		for ($i = 1, $number = FIRST_NUMBER; $i <= N_CELLS; $i++, $number++) {
 			$class = '';
 
 			if (is_prime($number)) {
