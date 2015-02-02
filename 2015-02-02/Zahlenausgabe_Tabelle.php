@@ -15,11 +15,14 @@
 	<table>
 		<tr>
 	<?php
+		$count_prime_numbers = 0;
+
 		for ($i = 1, $number = 29; $i <= 100; $i++, $number++) {
 			$class = '';
 
 			if (is_prime($number)) {
 				$class = 'class="blue"';
+				$count_prime_numbers++;
 			}
 
 			echo ' <td ' . $class . '>' . $number . '</td>';
@@ -31,6 +34,9 @@
 	?>
 		</tr>
 	</table>
+
+	<div class="blue"></div>
+	<?php echo $count_prime_numbers; ?> Primzahlen
 
 </body>
 </html>
