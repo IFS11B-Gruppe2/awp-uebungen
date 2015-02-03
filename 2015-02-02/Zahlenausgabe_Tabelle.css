@@ -18,3 +18,15 @@ div {
 .blue {
 	background-color: #00AAFF;
 }
+
+.blue_green {
+	background-color: #00AAAA;
+}
+
+.no_top_border {
+	border-top: 0;
+}
+
+.no_bottom_border {
+	border-bottom: 0;
+}

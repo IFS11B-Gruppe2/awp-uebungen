@@ -26,6 +26,22 @@
 			if (is_prime($number)) {
 				$count_prime_numbers++;
 				$class = 'blue';
+
+				$number_on_bottom = $number + COLUMNS;
+				if (
+					$number_on_bottom < FIRST_NUMBER + N_CELLS
+					and is_prime($number_on_bottom)
+				) {
+					$class = 'blue_green no_bottom_border';
+				}
+
+				$number_on_top = $number - COLUMNS;
+				if (
+					$number > FIRST_NUMBER + COLUMNS
+					and is_prime($number_on_top)
+				) {
+					$class = 'blue_green no_top_border';
+				}
 			}
 
 			echo ' <td class="' . $class . '">' . $number . '</td>';
