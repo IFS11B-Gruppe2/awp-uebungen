@@ -24,11 +24,11 @@
 			$class = '';
 
 			if (is_prime($number)) {
-				$class = 'class="blue"';
 				$count_prime_numbers++;
+				$class = 'blue';
 			}
 
-			echo ' <td ' . $class . '>' . $number . '</td>';
+			echo ' <td class="' . $class . '">' . $number . '</td>';
 
 			if ($i % COLUMNS == 0) {
 				echo '</tr><tr>';
