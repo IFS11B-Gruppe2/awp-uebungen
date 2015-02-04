@@ -13,6 +13,8 @@ for ($i = 0; $i < 6; $i++) {
 	<link rel="stylesheet" type="text/css" href="Lotto.css">
 </head>
 <body>
+	<h1>Lottoschein - Normal</h1>
+
 	<table>
 		<tbody>
 			<?php for ($row = 0, $number = 1; $row < 7; $row++) { ?>

@@ -1,3 +1,14 @@
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid #893857;
+	height: 30px;
+	text-align: center;
+	width: 30px;
+}
+
 .recommended {
 	color: #5DB186;
 	text-decoration: line-through;
