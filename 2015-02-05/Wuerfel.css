@@ -1,0 +1,11 @@
+div {
+	margin-bottom: 16px;
+}
+
+div.dice {
+	display: inline-block;
+}
+
+img {
+	vertical-align: middle;
+}
