@@ -6,11 +6,11 @@ for ($game_row = 0; $game_row < 6; $game_row++) {
 	for ($game_column = 0; $game_column < 2; $game_column++) {
 		$recommended[$game_row][$game_column] = array();
 		for ($i = 0; $i < 6; $i++) {
-			$random = rand(1, 49);
+			do {
+				$random = rand(1, 49);
+			} while (in_array($random, $recommended[$game_row][$game_column]));
 
-			if (!in_array($random, $recommended[$game_row][$game_column])) {
-				$recommended[$game_row][$game_column][$i] = $random;
-			}
+			$recommended[$game_row][$game_column][$i] = $random;
 		}
 	}
 }
