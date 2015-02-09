@@ -6,6 +6,14 @@ div.dice {
 	display: inline-block;
 }
 
+form {
+	margin: 16px;
+}
+
 img {
 	vertical-align: middle;
+}
+
+input[name="txtDices"] {
+	width: 80px;
 }

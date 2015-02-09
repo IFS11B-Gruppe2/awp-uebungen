@@ -1,5 +1,4 @@
 <?php
-define('N_DICES', '5');
 $values = array();
 $repeated_values = array(
 	1 => 0,
@@ -10,11 +9,14 @@ $repeated_values = array(
 	6 => 0,
 );
 
-for ($dice = 0; $dice < N_DICES; $dice++) {
-	$random_number = rand(1, 6);
-	array_push($values, $random_number);
-	$repeated_values[$random_number]++;
+if (isset($_POST['txtDices']) and !empty($_POST['txtDices']) and is_numeric($_POST['txtDices'])) {
+	for ($dice = 0; $dice < $_POST['txtDices']; $dice++) {
+		$random_number = rand(1, 6);
+		array_push($values, $random_number);
+		$repeated_values[$random_number]++;
+	}
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -27,21 +29,36 @@ for ($dice = 0; $dice < N_DICES; $dice++) {
 <body>
 	<h1>Würfelspiel</h1>
 
-	<div>
-		<?php foreach ($values as $index => $value) { ?>
-			<div class="dice">
-				<img src="../img/dice<?php echo $value; ?>.jpg" />
-			</div>
-		<?php } ?>
-	</div>
+	<form action="" method="post">
+		<label for="txtDices">Anzahl der Würfel: </label>
+		<input type="text" id="txtDices" name="txtDices" value="6" />
 
-	<?php foreach ($repeated_values as $value => $count) { ?>
-	  <?php if ($count > 0) { ?>
-			<div>
-				<span><?php echo $count; ?> mal eine <?php echo $value; ?></span>
-				<img src="../img/dice<?php echo $value; ?>.jpg" />
+		<input type="submit" name="btnSend" value="würfeln" />
+	</form>
+
+	<?php if (isset($_POST['txtDices'])) { ?>
+		<?php if (empty($_POST['txtDices']) or !is_numeric($_POST['txtDices'])) { ?>
+			<div class="error-message">
+				Anzahl der Würfel soll ein Nummer sein.
 			</div>
-	  <?php } ?>
+		<?php } else { ?>
+			<div>
+				<?php foreach ($values as $index => $value) { ?>
+					<div class="dice">
+						<img src="../img/dice<?php echo $value; ?>.jpg" />
+					</div>
+				<?php } ?>
+			</div>
+
+			<?php foreach ($repeated_values as $value => $count) { ?>
+				<?php if ($count > 0) { ?>
+					<div>
+						<span><?php echo $count; ?> mal eine <?php echo $value; ?></span>
+						<img src="../img/dice<?php echo $value; ?>.jpg" />
+					</div>
+				<?php } ?>
+			<?php } ?>
+		<?php } ?>
 	<?php } ?>
 </body>
 </html>
