@@ -31,7 +31,7 @@ if (isset($_POST['txtDices']) and !empty($_POST['txtDices']) and is_numeric($_PO
 
 	<form action="" method="post">
 		<label for="txtDices">Anzahl der Würfel: </label>
-		<input type="text" id="txtDices" name="txtDices" value="6" />
+		<input type="text" id="txtDices" name="txtDices" value="<?php echo (!empty($_POST['txtDices']) and is_numeric($_POST['txtDices'])) ? $_POST['txtDices'] : 6; ?>" />
 
 		<input type="submit" name="btnSend" value="würfeln" />
 	</form>
