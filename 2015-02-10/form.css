@@ -1,0 +1,8 @@
+table {
+	border-collapse: collapse;
+}
+
+tr.separator > td {
+	border-top: 1px solid #24554F;
+	padding-top: 16px;
+}

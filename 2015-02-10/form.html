@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<title>Hotel Bestellung</title>
+
+	<link rel="stylesheet" href="form.css">
+</head>
+<body>
+	<form action="form.php" method="post">
+		<table>
+			<tbody>
+				<tr>
+					<td><label for="txtName">Ihr Name:</label></td>
+
+					<td><input type="text" id="txtName" name="txtName" /></td>
+				</tr>
+
+				<tr>
+					<td><label for="txtRoomNumber">Ihr Zimmer Nr:</label></td>
+
+					<td><input type="text" id="txtRoomNumber" name="txtRoomNumber" /></td>
+				</tr>
+
+				<tr>
+					<td rowspan="5">
+						<label for="chkCheese1">Welchen Käse wunschen Sie?</label>
+					</td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" name="chkCheese1" value="Camembert" />Camembert</td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" name="chkCheese2" value="Emmentaler" />Emmentaler</td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" name="chkCheese3" value="Edamer" />Edamer</td>
+				</tr>
+
+				<tr>
+					<td><input type="checkbox" name="chkCheese4" value="Kraversal" />Kraversal</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="txtOther">Haben Sie einen weiteren Wunsch?</label>
+					</td>
+
+					<td><input type="text" id="txtOther" name="txtOther" /></td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="cmbPaymentMode">Ihr Zahlungswunsch:</label>
+					</td>
+
+					<td>
+						<select name="cmbPaymentMode" id="cmbPaymentMode">
+							<option value="Bei Lieferung">Bei Lieferung</option>
+
+							<option value="Auf Rechnung">Auf Rechnung</option>
+
+							<option value="Mit Kreditkarte">Mit Kreditkarte</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr class="separator">
+					<td>Bestellung</td>
+
+					<td><input type="submit" name="btnSend" value="Abschicken" /></td>
+
+					<td><input type="reset" name="btnCancel" value="Verwerfen" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>
