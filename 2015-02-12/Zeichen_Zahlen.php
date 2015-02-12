@@ -11,7 +11,7 @@ if (isset($_POST['txtText'])) {
 
 	$vocals = $counter['A'] + $counter['E'] + $counter['I'] + $counter['O'] + $counter['U'];
 	$umlaut = $counter['Ä'] + $counter['Ö'] + $counter['Ü'];
-	$total = strlen($upper_text);
+	$total = mb_strlen($upper_text, 'UTF-8');
 	$other = $total - $vocals - $umlaut;
 
 	$output = array(
