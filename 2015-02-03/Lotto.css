@@ -22,6 +22,14 @@ td {
 }
 
 .recommended {
-	color: #5DB186;
+	color: #E04EFF; /* Purple */
+}
+
+.selected {
+	color: #F08C1E; /* Orange */
 	text-decoration: line-through;
+}
+
+.selected.recommended {
+	color: #5DB186;
 }
