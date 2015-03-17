@@ -13,12 +13,28 @@
 		$txtN2 = 0;
 	}
 
+	if (isset($_POST['txtResult'])) {
+		$result = $_POST['txtResult'];
+	} else {
+		$result = 0;
+	}
+
 	if (isset($_POST['btnCalculate'])) {
 		$result = $txtN1 + $txtN2;
-	} else { // btnClearScreen action too
+	}
+
+	if (isset($_POST['btnClearScreen'])) {
 		$txtN1 = 0;
 		$txtN2 = 0;
 		$result = 0;
+	}
+
+	if (isset($_POST['btnSaveValue'])) {
+		$_SESSION['CALCULATOR_MEMORY_RESULT'] = $result;
+	}
+
+	if (isset($_POST['btnLoadValue'])) {
+		$txtN1 = $_SESSION['CALCULATOR_MEMORY_RESULT'];
 	}
 ?>
 <!DOCTYPE html>
