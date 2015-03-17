@@ -16,6 +16,8 @@
 	if (isset($_POST['btnCalculate'])) {
 		$result = $txtN1 + $txtN2;
 	} else { // btnClearScreen action too
+		$txtN1 = 0;
+		$txtN2 = 0;
 		$result = 0;
 	}
 ?>
@@ -66,6 +68,12 @@
 			<tr>
 				<td colspan="5">
 					<input type="submit" name="btnCalculate" value="Berechnen" class="wide" />
+
+					<input type="submit" name="btnClearScreen" value="C" class="wide" />
+
+					<input type="submit" name="btnSaveValue" value="M+" class="wide" />
+
+					<input type="submit" name="btnLoadValue" value="MR" class="wide" />
 				</td>
 			</tr>
 		</tbody>
