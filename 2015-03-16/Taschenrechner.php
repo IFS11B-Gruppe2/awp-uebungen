@@ -3,17 +3,19 @@
 
 	if (isset($_POST['txtN1'])) {
 		$txtN1 = $_POST['txtN1'];
+	} else {
+		$txtN1 = 0;
 	}
 
 	if (isset($_POST['txtN2'])) {
 		$txtN2 = $_POST['txtN2'];
+	} else {
+		$txtN2 = 0;
 	}
 
 	if (isset($_POST['btnCalculate'])) {
 		$result = $txtN1 + $txtN2;
-	} else {
-		$txtN1 = 0;
-		$txtN2 = 0;
+	} else { // btnClearScreen action too
 		$result = 0;
 	}
 ?>
