@@ -1,9 +1,15 @@
 <?php
 	session_start('calculator');
 
-	if (isset($_POST['btnCalculate'])) {
+	if (isset($_POST['txtN1'])) {
 		$txtN1 = $_POST['txtN1'];
+	}
+
+	if (isset($_POST['txtN2'])) {
 		$txtN2 = $_POST['txtN2'];
+	}
+
+	if (isset($_POST['btnCalculate'])) {
 		$result = $txtN1 + $txtN2;
 	} else {
 		$txtN1 = 0;
@@ -57,7 +63,7 @@
 
 			<tr>
 				<td colspan="5">
-					<input type="submit" name="btnCalculate" value="Berechnen" class="wide"/>
+					<input type="submit" name="btnCalculate" value="Berechnen" class="wide" />
 				</td>
 			</tr>
 		</tbody>
