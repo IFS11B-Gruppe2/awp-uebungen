@@ -24,7 +24,24 @@
 	}
 
 	if (isset($_POST['btnCalculate'])) {
-		$result = $txtN1 + $txtN2;
+		switch ($_POST['cmbOperator']) {
+			case '+':
+				$result = $txtN1 + $txtN2;
+				break;
+			case '-':
+				$result = $txtN1 - $txtN2;
+				break;
+			case '*':
+				$result = $txtN1 * $txtN2;
+				break;
+			case '/':
+				$result = $txtN1 / $txtN2;
+				break;
+			case 'x^y':
+				$result = pow($txtN1, $txtN2);
+				break;
+		}
+
 		array_push($_SESSION['CALCULATOR_RESULT_HISTORY'], $result);
 	}
 
@@ -85,7 +102,23 @@
 					<input type="text" name="txtN1" value="<?php echo $txtN1; ?>" />
 				</td>
 
-				<td>+</td>
+				<td>
+					<select name="cmbOperator">
+						<?php
+							$operators = array('+', '-', '*', '/', 'x^y');
+
+							foreach ($operators as $value) {
+								if ($_POST['cmbOperator'] == $value) {
+									$selected = 'selected';
+								} else {
+									$selected = '';
+								}
+
+								echo '<option value="' . $value . '" ' . $selected . '>' . $value . '</option>';
+							}
+						?>
+					</select>
+				</td>
 
 				<td>
 					<input type="text" name="txtN2" value="<?php echo $txtN2; ?>" />
