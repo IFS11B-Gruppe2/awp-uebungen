@@ -1,0 +1,11 @@
+html {
+  padding: 32px;
+}
+td {
+  padding: 8px;
+}
+input.wide {
+  display: block;
+  margin: 16px 0;
+  width: 100%;
+}
