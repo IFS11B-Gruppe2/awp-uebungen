@@ -1,6 +1,10 @@
 <?php
 	session_start('calculator');
 
+	if (!isset($_SESSION['CALCULATOR_RESULT_HISTORY'])) {
+		$_SESSION['CALCULATOR_RESULT_HISTORY'] = array();
+	}
+
 	if (isset($_POST['txtN1'])) {
 		$txtN1 = $_POST['txtN1'];
 	} else {
@@ -21,6 +25,7 @@
 
 	if (isset($_POST['btnCalculate'])) {
 		$result = $txtN1 + $txtN2;
+		array_push($_SESSION['CALCULATOR_RESULT_HISTORY'], $result);
 	}
 
 	if (isset($_POST['btnClearScreen'])) {
@@ -61,6 +66,18 @@
 				<td> </td>
 
 				<td>Ergebnis</td>
+
+				<td rowspan="3">
+					<label for="txtResultHistory">Letzten Ergebnisse</label>
+
+					<br/>
+
+					<textarea name="txtResultHistory" id="txtResultHistory" cols="16" rows="10" disabled><?php
+						foreach ($_SESSION['CALCULATOR_RESULT_HISTORY'] as $value) {
+							echo $value . "\n";
+						}
+					?></textarea>
+				</td>
 			</tr>
 
 			<tr>
