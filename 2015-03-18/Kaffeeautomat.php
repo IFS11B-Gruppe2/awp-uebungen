@@ -7,6 +7,17 @@
 		$_SESSION['credit'] = 0;
 	}
 
+	if (!isset($_SESSION['ordered'])) {
+		$_SESSION['ordered'] = array(
+			'black_coffee' => 0,
+			'milk_coffee' => 0,
+			'sugar_coffee' => 0,
+			'sugar_milk_coffee' => 0,
+			'cappuccino' => 0,
+			'latte_machiato' => 0
+		);
+	}
+
 	$prices = array(
 		'black_coffee' => .50,
 		'milk_coffee' => .55,
@@ -40,6 +51,30 @@
 		$_SESSION['credit'] += .05;
 	}
 
+	if (isset($_POST['btnBlackCoffee'])) {
+		$_SESSION['ordered']['black_coffee'] ++;
+	}
+
+	if (isset($_POST['btnMilkCoffee'])) {
+		$_SESSION['ordered']['milk_coffee'] ++;
+	}
+
+	if (isset($_POST['btnSugarCoffee'])) {
+		$_SESSION['ordered']['sugar_coffee'] ++;
+	}
+
+	if (isset($_POST['btnSugarMilkCoffee'])) {
+		$_SESSION['ordered']['sugar_milk_coffee'] ++;
+	}
+
+	if (isset($_POST['btnCappuccino'])) {
+		$_SESSION['ordered']['cappuccino'] ++;
+	}
+
+	if (isset($_POST['btnLatteMachiato'])) {
+		$_SESSION['ordered']['latte_machiato'] ++;
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -55,7 +90,18 @@
 		<table>
 			<tr>
 				<td>
-					<img src="" alt="">
+					<img src="" alt="" />
+
+					<?php
+					  $total_cost = 0;
+
+						foreach($_SESSION['ordered'] as $name => $value) {
+							$total_cost += $prices[$name] * $value;
+							echo $name . ' ' . $value . "<br/>\n";
+						}
+
+						echo 'Gesamtsumme: ' . $total_cost;
+					?>
 				</td>
 
 				<td>
