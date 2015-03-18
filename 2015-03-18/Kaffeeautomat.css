@@ -1,0 +1,11 @@
+td {
+	text-align: center;
+}
+
+input[type="submit"].wide {
+	width: 100%;
+}
+
+input[type="submit"].half-wide {
+	width: 60%;
+}
