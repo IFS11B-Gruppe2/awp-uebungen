@@ -108,7 +108,7 @@
 							$operators = array('+', '-', '*', '/', 'x^y');
 
 							foreach ($operators as $value) {
-								if ($_POST['cmbOperator'] == $value) {
+								if (isset($_POST['cmbOperator']) and $_POST['cmbOperator'] == $value) {
 									$selected = 'selected';
 								} else {
 									$selected = '';
