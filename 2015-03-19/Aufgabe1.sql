@@ -60,3 +60,6 @@ VALUES
 #######
 ## 7 ##
 #######
+ALTER TABLE delivery_men
+ADD COLUMN time_for_payment tinyint(3) unsigned COMMENT 'Zahlungsziel'
+;
