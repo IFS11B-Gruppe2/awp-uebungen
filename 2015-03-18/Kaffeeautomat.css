@@ -2,6 +2,12 @@ td {
 	text-align: center;
 }
 
+div.error {
+	background-color: #FFB3B5;
+	color: red;
+	margin: 8px;
+}
+
 input[type="submit"].wide {
 	width: 100%;
 }

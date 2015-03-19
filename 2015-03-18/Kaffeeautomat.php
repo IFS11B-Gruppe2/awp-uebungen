@@ -75,6 +75,25 @@
 		$_SESSION['ordered']['latte_machiato'] ++;
 	}
 
+	if (isset($_POST['btnGetDrink'])) {
+		$total_cost = 0;
+
+		foreach($_SESSION['ordered'] as $name => $value) {
+			$total_cost += $prices[$name] * $value;
+		}
+
+		if ($_SESSION['credit'] >= $total_cost) {
+			$change = $_SESSION['credit'] - $total_cost;
+
+			$_SESSION['credit'] = 0;
+
+			foreach ($_SESSION['ordered'] as $key => $value) {
+				$_SESSION['ordered'][$key] = 0;
+			}
+		} else {
+			$error_message = 'Guthaben nicht genug!';
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -93,7 +112,7 @@
 					<img src="" alt="" />
 
 					<?php
-					  $total_cost = 0;
+						$total_cost = 0;
 
 						foreach($_SESSION['ordered'] as $name => $value) {
 							$total_cost += $prices[$name] * $value;
@@ -173,6 +192,12 @@
 						<tr>
 							<td>
 								<input type="submit" name="btnGetDrink" value="Getränkeausgabe" />
+
+								<?php if (isset($error_message)) { ?>
+									<div class="error">
+										<?php echo $error_message; ?>
+									</div>
+								<?php } ?>
 							</td>
 
 							<td>
