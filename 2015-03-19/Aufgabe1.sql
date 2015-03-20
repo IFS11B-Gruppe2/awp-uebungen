@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS delivery_men;
 ## 1 ##
 #######
 CREATE TABLE IF NOT EXISTS `delivery_men` (
-	`id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Lieferantennummer',
+	`delivery_man_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Lieferantennummer',
 	`name` varchar(40) COMMENT 'Name',
 	`city` varchar(40) COMMENT 'Ort',
 	`zip_code` varchar(5) COMMENT 'PLZ',
