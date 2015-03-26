@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `processor_types` (
 	`define_name` varchar(40) NOT NULL COMMENT 'Kurze Beschreibung',
 	`description` varchar(400) DEFAULT NULL COMMENT 'Lange Beschreibung',
 
-	CONSTRAINT PRIMARY KEY `pk_processor_types` (`id`)
+	CONSTRAINT `pk_processor_types` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Prozessortypen';
 
 DROP TABLE IF EXISTS `battery_types`;
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `battery_types` (
 	`define_name` varchar(40) NOT NULL COMMENT 'Kurze Beschreibung',
 	`description` varchar(400) DEFAULT NULL COMMENT 'Lange Beschreibung',
 
-	CONSTRAINT PRIMARY KEY `pk_battery_types` (`id`)
+	CONSTRAINT `pk_battery_types` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Akkustypen';
 
 DROP TABLE IF EXISTS `laptops`;
@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS `laptops` (
 	`processor_type_id` int(10) unsigned DEFAULT NULL COMMENT 'Fremdschlüssel processor_types',
 	`battery_type_id` int(10) unsigned DEFAULT NULL COMMENT 'Fremdschlüssel battery_type',
 
-	CONSTRAINT PRIMARY KEY `pk_laptops` (inventar_number),
-	CONSTRAINT FOREIGN KEY `fk_laptops_processor_types` (`processor_type_id`)
+	CONSTRAINT `pk_laptops` PRIMARY KEY (inventar_number),
+	CONSTRAINT `fk_laptops_processor_types` FOREIGN KEY (`processor_type_id`)
 		REFERENCES `processor_types` (`id`)
 		ON DELETE NO ACTION ON UPDATE NO ACTION,
-	CONSTRAINT FOREIGN KEY `fk_laptops_battery_types` (`battery_type_id`)
+	CONSTRAINT `fk_laptops_battery_types` FOREIGN KEY (`battery_type_id`)
 		REFERENCES `battery_types` (`id`)
 		ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Daten der Laptops';
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 	`name` varchar(40) NOT NULL COMMENT 'Name',
 	`credit_card` varchar(16) DEFAULT NULL COMMENT 'Kreditkarte',
 
-	CONSTRAINT PRIMARY KEY `pk_customers` (`id`)
+	CONSTRAINT `pk_customers` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Daten der Kunden';
 
 DROP TABLE IF EXISTS `rents`;
@@ -57,11 +57,11 @@ CREATE TABLE IF NOT EXISTS `rents` (
 	`laptop_id` int(10) unsigned DEFAULT NULL COMMENT 'Fremdschlüssel laptops',
 	`paid` decimal(6,2) NOT NULL COMMENT 'Mietgebühr',
 
-	CONSTRAINT PRIMARY KEY `pk_rents` (`id`),
-	CONSTRAINT FOREIGN KEY `fk_rents_customer` (`customer_id`)
+	CONSTRAINT `pk_rents` PRIMARY KEY (`id`),
+	CONSTRAINT `fk_rents_customer` FOREIGN KEY (`customer_id`)
 		REFERENCES `customers` (`id`)
 		ON DELETE NO ACTION ON UPDATE NO ACTION,
-	CONSTRAINT FOREIGN KEY `fk_rents_laptops` (`laptop_id`)
+	CONSTRAINT `fk_rents_laptops` FOREIGN KEY (`laptop_id`)
 		REFERENCES `laptops` (`inventar_number`)
 		ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Daten der Mieten';
