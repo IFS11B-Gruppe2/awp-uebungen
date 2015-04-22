@@ -1,5 +1,5 @@
 ## 1
-## Listen Sie die Länder mit ihren Sprachen auf, und ob sie 'offiziel' oder 'nicht offiziel' ist.
+## Listen Sie die Länder mit ihren Sprachen auf, und ob sie 'offiziel' oder 'nicht offiziel' sind.
 ## Absteigend sortiert nach Landname.
 ## Offizielle Sprachen sollen vor den nicht offiziellen Sprachen gezeigt werden.
 
