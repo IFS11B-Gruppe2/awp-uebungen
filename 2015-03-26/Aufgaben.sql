@@ -81,9 +81,13 @@ SELECT
 	p.Nachname,
 	i.Name AS 'Krankheit'
 FROM
-	patienten p
-	JOIN patienten_indikationen ip ON (ip.Nr_Patient = p.NR)
-	JOIN indikationen i ON (i.Nr = ip.Nr_Indikation)
+	patienten p,
+	patienten_indikationen pi,
+	indikationen i
+WHERE
+	pi.Nr_Patient = p.NR
+	AND
+	i.Nr = pi.Nr_Indikation
 ORDER BY 2 ASC
 ;
 
@@ -95,8 +99,8 @@ SELECT
 	i.Name AS 'Krankheit'
 FROM
 	patienten p
-	JOIN patienten_indikationen ip ON (ip.Nr_Patient = p.NR)
-	JOIN indikationen i ON (i.Nr = ip.Nr_Indikation)
+	JOIN patienten_indikationen pi ON (pi.Nr_Patient = p.NR)
+	JOIN indikationen i ON (i.Nr = pi.Nr_Indikation)
 ORDER BY 2 ASC
 ;
 
