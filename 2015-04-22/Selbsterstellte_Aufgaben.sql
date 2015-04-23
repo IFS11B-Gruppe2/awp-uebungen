@@ -47,6 +47,5 @@ ORDER BY
 ;
 
 ## 4
-## Listen Sie die Bürgeranzahl jeder Hauptstadt mit ihren Sprachen.
-## Aufsteigend sortiert nach Stadtname.
-## Offizielle Sprachen sollen vor den nicht offiziellen Sprachen gezeigt werden.
+## Listen Sie die Bürgeranzahl jeder Hauptstadt mit ihren offiziellen Sprachen.
+## Aufsteigend sortiert nach Stadtname und Sprachen.
