@@ -1,7 +1,8 @@
 ## 1
 ## Listen Sie die Länder mit ihren Sprachen auf, und ob sie 'offiziel' oder 'nicht offiziel' sind.
-## Absteigend sortiert nach Landname.
+## Aufsteigend sortiert nach Landname.
 ## Offizielle Sprachen sollen vor den nicht offiziellen Sprachen gezeigt werden.
+
 
 ## 2
 ## Listen Sie auf, wie viele Personen jeder Sprache sprechen.
@@ -13,5 +14,5 @@
 
 ## 4
 ## Listen Sie die Bürgeranzahl jeder Hauptstadt mit ihren Sprachen.
-## Absteigend sortiert nach Stadtname.
+## Aufsteigend sortiert nach Stadtname.
 ## Offizielle Sprachen sollen vor den nicht offiziellen Sprachen gezeigt werden.
