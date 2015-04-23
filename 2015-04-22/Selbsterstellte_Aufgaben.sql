@@ -34,7 +34,17 @@ ORDER BY
 ## 3
 ## Listen Sie auf, wie viele Städte per Regierungsform gibt.
 ## Absteigend sortiert nach Städteanzahl.
-
+SELECT
+  co.GovernmentForm AS 'Regierungsform',
+  COUNT(ci.Name) AS 'Städte'
+FROM
+  country AS co
+  INNER JOIN city AS ci ON (ci.CountryCode = co.Code)
+GROUP BY 1
+ORDER BY
+  2 DESC,
+  1 ASC
+;
 
 ## 4
 ## Listen Sie die Bürgeranzahl jeder Hauptstadt mit ihren Sprachen.
