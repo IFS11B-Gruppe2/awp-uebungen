@@ -19,6 +19,17 @@ ORDER BY
 ## 2
 ## Listen Sie auf, wie viele Personen jeder Sprache sprechen.
 ## Absteigend sortiert nach Bürgeranzahl.
+SELECT
+  cola.Language AS 'Sprache',
+  SUM(co.Population) AS 'Personen'
+FROM
+  country AS co
+  INNER JOIN countryLanguage AS cola ON (cola.CountryCode = co.Code)
+GROUP BY 1
+ORDER BY
+  2 DESC,
+  1 ASC
+;
 
 ## 3
 ## Listen Sie auf, wie viele Personen wohnen in unterschiedlichen Regierungsformen.
