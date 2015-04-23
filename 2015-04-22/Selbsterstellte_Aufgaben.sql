@@ -32,8 +32,9 @@ ORDER BY
 ;
 
 ## 3
-## Listen Sie auf, wie viele Personen wohnen in unterschiedlichen Regierungsformen.
-## Absteigend sortiert nach Personenanzahl.
+## Listen Sie auf, wie viele Städte per Regierungsform gibt.
+## Absteigend sortiert nach Städteanzahl.
+
 
 ## 4
 ## Listen Sie die Bürgeranzahl jeder Hauptstadt mit ihren Sprachen.
