@@ -49,3 +49,17 @@ ORDER BY
 ## 4
 ## Listen Sie die Bürgeranzahl jeder Hauptstadt mit ihren offiziellen Sprachen.
 ## Aufsteigend sortiert nach Stadtname und Sprachen.
+SELECT
+  ci.Name AS 'Hauptstadt',
+  ci.Population AS 'Bürgeranzahl',
+  cola.Language AS 'Sprache'
+FROM
+  country AS co
+  INNER JOIN city AS ci ON (ci.ID = co.Capital)
+  INNER JOIN countryLanguage AS cola ON (cola.CountryCode = co.Code)
+WHERE
+  cola.IsOfficial = 'T'
+ORDER BY
+  1 ASC,
+  3 ASC
+;
