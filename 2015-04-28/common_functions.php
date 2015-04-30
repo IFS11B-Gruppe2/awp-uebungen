@@ -36,6 +36,28 @@ function get_db_connection() {
 	return $db;
 }
 
+function get_orders($db) {
+	$orders = null;
+
+	$sql_select_orders = '
+		SELECT
+		  o.id AS "orderID",
+			o.*,
+			c.id AS "customerID",
+			c.*
+		FROM
+			orders AS o
+			JOIN customers AS c ON (c.id = o.customerID)
+		;
+	';
+
+	$mysql_result = mysql_query($sql_select_orders, $db);
+
+	$orders = get_assoc_array($mysql_result);
+
+	return $orders;
+}
+
 function insert_customer($db, $array_insert_customer) {
 	$customerID = false;
 
