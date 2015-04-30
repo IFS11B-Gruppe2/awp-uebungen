@@ -23,6 +23,15 @@
 	<?php } else { ?>
 		<table class="default customers">
 			<tbody>
+				<tr>
+					<th>id</th>
+
+					<th>Nachname</th>
+
+					<th>Vorname</th>
+
+					<th>Adresse</th>
+				</tr>
 				<?php foreach ($customers as $row) { ?>
 					<tr>
 						<td class="em">
