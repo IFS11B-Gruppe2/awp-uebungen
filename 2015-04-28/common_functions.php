@@ -90,10 +90,49 @@ function insert_customer($db, $array_insert_customer) {
 		echo(mysql_error($db));
 		echo("<br/>\n<hr/><br/>\n");
 		echo($sql_insert_customer);
-		die();
 	} else {
 		$customerID = mysql_insert_id($db);
 	}
 
 	return $customerID;
+}
+
+function insert_order($db, $array_insert_order) {
+	$orderID = false;
+
+	$keys = array_keys($array_insert_order);
+	sort($keys);
+	sort($array_insert_order);
+
+	# Text fields in ''
+	foreach ($array_insert_order as $field_name => $value) {
+		if (!is_numeric($value)) {
+			$array_insert_order[$field_name] = "'" . $value . "'";
+		}
+	}
+
+	# Comma-separated list
+	$field_name_list = implode(', ', $keys);
+	$values_list = implode(', ', $array_insert_order);
+
+	$sql_insert_order = "
+		INSERT INTO `orders`
+			($field_name_list)
+		VALUES
+			($values_list)
+		;
+	";
+
+	$query_ok = mysql_query($sql_insert_order, $db);
+
+	if (!$query_ok) {
+		echo(mysql_error($db));
+		echo("<br/>\n<hr/><br/>\n");
+		echo($sql_insert_order);
+		die();
+	} else {
+		$orderID = mysql_insert_id($db);
+	}
+
+	return $orderID;
 }
