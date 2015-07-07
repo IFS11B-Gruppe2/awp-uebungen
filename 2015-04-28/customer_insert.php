@@ -56,13 +56,6 @@
 				</tr>
 			</tbody>
 		</table>
-
-
-
-
-
-
-
 	</form>
 </body>
 </html>
